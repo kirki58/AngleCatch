@@ -15,10 +15,10 @@ void shootAction(int panAngle, int tiltAngle){
   panServo.write(panAngle + panServoBias);
   tiltServo.write(tiltAngle + tiltServoBias);
 
-  //digitalWrite(laserPin, LOW);
-  //delay(1000);
-  //digitalWrite(laserPin, HIGH);
-  //delay(1000);
+  digitalWrite(laserPin, LOW);
+  delay(1000);
+  digitalWrite(laserPin, HIGH);
+  delay(1000);
 }
 
 void setup() {
@@ -36,7 +36,6 @@ void setup() {
 
 void loop() {
   delay(200);
-  digitalWrite(laserPin, LOW);
   if (Serial.available() > 0) {
     // Data comes in form of string "theta1,theta2\n"
     String data = Serial.readStringUntil('\n'); // Read until newline character
